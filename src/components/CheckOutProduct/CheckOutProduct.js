@@ -20,9 +20,9 @@ const CheckOutProduct = ({ product }) => {
           <td>${price}</td>
         </tr>
         <tr>
-          <td colSpan="2">Total</td>
+          <td colSpan="2"> <strong> Total</strong></td>
 
-          <td>${price}</td>
+          <td> <strong>${price}</strong></td>
         </tr>
       </tbody>
     </Table>
