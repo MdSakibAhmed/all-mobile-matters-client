@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import CheckOut from "./components/CheckOut/CheckOut";
 import Orders from "./components/Orders/Orders";
 import LogOut from "./components/LogOut/LogOut";
+import NoMatch from "./components/NoMatch/NoMatch";
 export const UserContext = createContext();
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
           <CheckOut></CheckOut>
         </PrivateRoute>
         <Route path="*">
-        <h1>404 Not found</h1>
+        <NoMatch></NoMatch>
 
         </Route>
       </Switch>

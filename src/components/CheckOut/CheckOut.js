@@ -15,8 +15,7 @@ const CheckOut = () => {
     name: "",
     price: "",
     imgURL: "",
-    model:"",
-    current_date: "",
+    current_date: ""
   });
   const [orderSuccess, setOrderSuccess] = useState(false);
   useEffect(() => {
@@ -29,7 +28,6 @@ const CheckOut = () => {
         newOrder.name = data.name;
         newOrder.price = data.price;
         newOrder.imgURL = data.imgURL;
-        newOrder.model = data.model;
         newOrder.current_date = new Date().toDateString("dd/MM/yyy");
         setOrder(newOrder);
       });
@@ -54,8 +52,6 @@ const CheckOut = () => {
       ) : (
         <CheckOutProduct product={product} />
       )}
-
-      {/* {!order.success && <button onClick={handleAddOrder}>Checkout</button>} */}
 
       <div
         style={{ width: "150px", marginLeft: "auto" }}

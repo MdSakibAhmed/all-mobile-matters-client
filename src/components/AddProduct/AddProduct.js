@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import "./AddProduct.css"
@@ -8,10 +7,8 @@ import "./AddProduct.css"
 
 
 const AddProduct = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit,  errors } = useForm();
     const history = useHistory()
-    const [successAddProduct,setSuccessAddProduct] = useState(false)
-
     const handleAddProduct = (productInfo) => {
         fetch("https://cherry-surprise-80306.herokuapp.com/addProduct",{
             method:"POST",
@@ -20,16 +17,13 @@ const AddProduct = () => {
 
         }).then(res => res.json()).then(result => {
           if(result) {
-            setSuccessAddProduct(true)
-            setTimeout(() => {
-              history.push("/admin")
-            }, 2000);
+            history.push("/admin")
             
           }
         })
     }
 const onSubmit = (data) => {
-    const {name,price,model} = data;
+    const {name,price,brand} = data;
     const formData = new FormData()
     formData.set("key","a4355e14fad8e03f37f160b394cd440a")
     formData.append("image", data.img[0])
@@ -40,7 +34,7 @@ const onSubmit = (data) => {
           const productInfo = {
               name:name,
               price:price,
-              model:model,
+              brand:brand,
               imgURL:response.data.data.display_url
           }
 
@@ -50,16 +44,11 @@ const onSubmit = (data) => {
       .catch(function (error) {
         console.log(error);
       });
-
-
-
 };
 
- // watch input value by passing the name of it
   return (
     <>
-    {successAddProduct && <h3 className="">Product added successfully</h3>}
-    {!successAddProduct && <form className="addProduct-form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="addProduct-form" onSubmit={handleSubmit(onSubmit)}>
     <fieldset>
     <legend>Add Product</legend>
     <label htmlFor="">Product Name</label>
@@ -73,9 +62,9 @@ const onSubmit = (data) => {
       <input name="price" type="number" ref={register({ required: true })} />
       {/* errors will return when field validation fails  */}
       {errors.price && <span>This field is required</span>}
-      <label htmlFor="">Model Number</label>
-      <input name="model" type="text" ref={register({ required: true })} />
-      {errors.model && <span>This field is required</span>}
+      <label htmlFor="">Brand Name</label>
+      <input name="brand" type="text" ref={register({ required: true })} />
+      {errors.brand && <span>This field is required</span>}
 
     <label htmlFor="">Add Photo</label>
 
@@ -84,7 +73,7 @@ const onSubmit = (data) => {
 
       <input className="btn-primary" type="submit" value="save" />
       </fieldset>
-    </form> }
+    </form> 
     
     </>
   );
