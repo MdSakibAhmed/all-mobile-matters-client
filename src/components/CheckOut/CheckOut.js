@@ -15,11 +15,12 @@ const CheckOut = () => {
     name: "",
     price: "",
     imgURL: "",
+    model:"",
     current_date: "",
   });
   const [orderSuccess, setOrderSuccess] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${productId}`)
+    fetch(`https://cherry-surprise-80306.herokuapp.com/product/${productId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -28,13 +29,14 @@ const CheckOut = () => {
         newOrder.name = data.name;
         newOrder.price = data.price;
         newOrder.imgURL = data.imgURL;
+        newOrder.model = data.model;
         newOrder.current_date = new Date().toDateString("dd/MM/yyy");
         setOrder(newOrder);
       });
   }, [productId]);
 
   const handleAddOrder = () => {
-    fetch("http://localhost:5000/addOrder", {
+    fetch("https://cherry-surprise-80306.herokuapp.com/addOrder", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),

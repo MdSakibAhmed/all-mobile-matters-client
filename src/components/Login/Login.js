@@ -6,6 +6,8 @@ import { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faGoogle } from "@fortawesome/free-brands-svg-icons"
 
  
  
@@ -44,8 +46,8 @@ const [loggedInUser,setLoggedInUser] = useContext(UserContext)
     }
     
     return (
-        <div>
-           <button onClick={handleSignInWithGoogle}>log with google</button>
+        <div className="w-50 text-center container mt-5">
+           <button className=" rounded-pill border-0 p-3 ps-5 pe-5 fa-2x" onClick={handleSignInWithGoogle}> <FontAwesomeIcon style={{color:"blue",fontSize:"40px",marginRight:"10px"}} icon={faGoogle}/> continue with Google</button>
         </div>
     );
 };

@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 
 const Products = ({product}) => {
-    const {name,price,imgURL,_id} = product;
+    const {name,price,imgURL,model,_id} = product;
     const history = useHistory()
     
 
@@ -20,6 +20,7 @@ const Products = ({product}) => {
   <Card.Img variant="top" src={imgURL} style={{width:"300px",height:"300px"}} />
   <Card.Body className="d-flex flex-column justify-content-between">
     <Card.Title>{name}</Card.Title>
+    <Card.Text>{model}</Card.Text>
     <Card.Title> ${price}</Card.Title>
     
     <Button variant="primary" onClick={() => history.push(`/BuyNow/${_id}`)}>Buy Now</Button>

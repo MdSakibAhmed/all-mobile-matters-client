@@ -11,7 +11,7 @@ const CheckOutProduct = ({product}) => {
 
         // </div>
         
-     <Table   hover>
+     <Table    hover>
   <thead>
     <tr>
      

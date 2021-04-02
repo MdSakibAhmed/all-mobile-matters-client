@@ -12,10 +12,10 @@ const Admin = () => {
   return (
     <>
       <div className="d-flex">
-        <div className="bg-dark w-25 pt-5  ">
+        <div className="bg-dark  w-25  pt-5  " style={{height:"100vh"}}>
           <h2 className="text-white text-center">All Mobile Matters</h2>
 
-          <Nav defaultActiveKey="/home" className="flex-column">
+          <Nav  className="flex-column text-center">
             <Nav.Link
               as={Link}
               to={`${url}/manageProduct`}
@@ -30,12 +30,12 @@ const Admin = () => {
             >
               Add Product
             </Nav.Link>
-            <Nav.Link className=" text-white bold" as={Link} eventKey="link-2">
+            <Nav.Link className=" text-white bold" as={Link} to="/">
               Edit Product
             </Nav.Link>
           </Nav>
         </div>
-        <div>
+        <div className="w-50 ms-5">
           <Switch>
             <Route exact path={path}>
               {/* <h4>Please select a topic</h4> */}
