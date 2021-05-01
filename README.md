@@ -1,9 +1,16 @@
 # All Mobile Matters
 
 ## Features
-1. This web app contains a huge collection of smartphone with high quality brands.
-2. You can buy now from here easily just by clicking on buy now button.
-3. You can see all your orders in orders page with current date of order.
+This is a MERN stack web app.This repo contains client side sourch code. Here are main features of this appp
+
+1. Visitor can buy his favorite mobile from this app.
+
+2. 	Only logged in customer can order product and he can see his ordered product list on the order tab.
+
+3. 	He can manage orders from dashboard and add new product to database so that it is visible on home page. 
+
+## Used technology: React, firebase authentication, react-router, react hook, react hook form, google map, bootstrap5., netlify. 
+
 
 ## Live website link 
 https://all-mobile-matters.web.app/
